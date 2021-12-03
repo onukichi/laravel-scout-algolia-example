@@ -8,5 +8,5 @@ use Laravel\Scout\Searchable;
 
 class Job extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 }
