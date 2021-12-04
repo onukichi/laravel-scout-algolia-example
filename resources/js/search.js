@@ -1,7 +1,5 @@
-/** @jsx h */
 import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
 import algoliasearch from 'algoliasearch';
-import { h } from 'preact';
 
 import '@algolia/autocomplete-theme-classic';
 
@@ -12,8 +10,7 @@ const searchClient = algoliasearch(
 
 autocomplete({
     container: '#autocomplete',
-    placeholder: '会社、募集を検索',
-    detachedMediaQuery: 'none',
+    placeholder: '求人、職種を検索',
     getSources({ query }) {
         return [
             {
@@ -26,9 +23,7 @@ autocomplete({
                                 indexName: 'jobs',
                                 query,
                                 params: {
-                                    hitsPerPage: 5,
-                                    attributesToSnippet: ['name:10', 'description:35'],
-                                    snippetEllipsisText: '…',
+                                    hitsPerPage: 3,
                                 },
                             },
                         ],
@@ -57,9 +52,7 @@ autocomplete({
                                 indexName: 'job_categories',
                                 query,
                                 params: {
-                                    hitsPerPage: 5,
-                                    attributesToSnippet: ['name:10', 'description:35'],
-                                    snippetEllipsisText: '…',
+                                    hitsPerPage: 3,
                                 },
                             },
                         ],
